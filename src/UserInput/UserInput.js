@@ -1,17 +1,17 @@
-import React from 'react';
+// import React from 'react';
 
 
-const userInput = (props) => {
-    return (
+// const userInput = (props) => {
+//     return (
 
 
-        <div>
-            <input type="text" onChange={props.changed} value={props.currentName} />
-        </div>
+//         <div>
+//             <input type="text" onChange={props.changed} value={props.currentName} />
+//         </div>
 
 
 
-    )
+//     )
 
-};
-export default userInput;
+// };
+// export default userInput;

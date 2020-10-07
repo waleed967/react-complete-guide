@@ -1,18 +1,18 @@
-import React from 'react';
+// import React from 'react';
 
 
-const userOutput = (props) => {
-    return (
+// const userOutput = (props) => {
+//     return (
 
 
-        <div><p> User Name: {props.userName}  </p>
-            <p>{props.children}</p>
+//         <div><p> User Name: {props.userName}  </p>
+//             <p>{props.children}</p>
 
-        </div>
+//         </div>
 
 
 
-    )
+//     )
 
-};
-export default userOutput;
+// };
+// export default userOutput;
