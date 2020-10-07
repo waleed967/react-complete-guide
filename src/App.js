@@ -19,13 +19,13 @@ class App extends Component {
                 {
                     //     value: " ",
                     // }
-                    name: "Waleed", age: "25"
+                    id: "uwqtuwt1", name: "Waleed", age: "25"
                 },
                 {
-                    name: "Adeel", age: "26"
+                    id: "uryeure2", name: "Adeel", age: "26"
                 },
                 {
-                    name: "Talha", age: "27"
+                    id: "uefhuef3", name: "Talha", age: "27"
                 }
             ],
             showPersons: false
@@ -122,7 +122,11 @@ class App extends Component {
             persons = (<div>
                 {this.state.persons.map((person, index) => {
 
-                    return <Person name={person.name} age={person.age} click={() => this.deletePersonHandler(index)} />
+                    return <Person
+                        name={person.name}
+                        age={person.age}
+                        click={() => this.deletePersonHandler(index)}
+                        key={person.id} />
                 })}
 
 
