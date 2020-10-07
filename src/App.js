@@ -62,7 +62,7 @@ class App extends Component {
     }
 
     handleSubmit = (event) => {
-        alert('Num Submitted' + this.state.value);
+        alert('Values are Submited' + this.state.value);
         event.preventDefault();
 
 
@@ -111,7 +111,7 @@ class App extends Component {
                 <header className="App-header" >
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Name:
+                            Values:
 <input type="text" value={this.state.value} onChange={this.handleChange} />
                         </label>
                         <input type="submit" value="Submit" />
