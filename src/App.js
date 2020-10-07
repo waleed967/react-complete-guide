@@ -4,7 +4,7 @@ import './App.css';
 // import UserInput from './UserInput/UserInput';
 // import UserOutput from './UserOutput/UserOutput'
 // import Person from './Person/Person'
-import List from './List/List'
+// import List from './List/List'
 class App extends Component {
     constructor(props) {
         super(props)
