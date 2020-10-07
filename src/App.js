@@ -28,7 +28,8 @@ class App extends Component {
 
                 }
 
-            ]
+            ],
+            showPersons: false
 
         }
 
@@ -51,6 +52,13 @@ class App extends Component {
 
         });
 
+
+    }
+
+    togglePersonHandler = () => {
+
+        const doesShow = this.state.showPersons;
+        this.setState({ showPersons: !doesShow });
 
     }
     // nameChangeHandler = (event) => {
@@ -87,10 +95,16 @@ class App extends Component {
 
             <div className="App" >
                 <header className="App-header" >
-                    <button onClick={() => this.switchNameHandler('Zaman')}>Button</button>
-                    <Person name={this.state.persons[0].name} age={this.state.persons[0].age}></Person>
-                    <Person name={this.state.persons[1].name} age={this.state.persons[1].age}></Person>
-                    <Person name={this.state.persons[2].name} age={this.state.persons[2].age} click={this.switchNameHandler.bind(this, 'Ahmed')}></Person>
+
+                    <button onClick={this.togglePersonHandler}>Button</button>
+                    {
+                        this.state.showPersons === true ?
+                            <div>
+                                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}></Person>
+                                <Person name={this.state.persons[1].name} age={this.state.persons[1].age}></Person>
+                                <Person name={this.state.persons[2].name} age={this.state.persons[2].age} click={this.switchNameHandler.bind(this, 'Ahmed')}></Person>
+                            </div> : null
+                    }
                 </header >
 
             </div >
