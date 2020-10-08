@@ -1,9 +1,11 @@
 
 import React, { Component } from 'react';
+// import { findRenderedComponentWithType } from 'react-dom/test-utils';
 import './App.css';
 // import UserInput from './UserInput/UserInput';
 // import UserOutput from './UserOutput/UserOutput'
 import Person from './Person/Person'
+import Radium from 'radium'
 // import List from './List/List'
 class App extends Component {
     // constructor(props) {
@@ -116,6 +118,19 @@ class App extends Component {
     // }
 
     render() {
+        const style = {
+            backgroundColor: 'white',
+            ':hover': {
+
+                backgroundColor: 'lightgreen',
+                color: ' white'
+
+            }
+
+
+
+
+        };
 
         let persons = null;
         if (this.state.showPersons) {
@@ -130,10 +145,25 @@ class App extends Component {
                 })}
 
 
-            </div>)
+            </div>);
 
+            style.backgroundColor = 'red'
+            style[':hover'] = {
 
+                backgroundColor: 'salmon',
+                color: ' white'
 
+            }
+
+        }
+        const classes = [];
+        if (this.state.persons.length <= 2) {
+
+            classes.push('red');
+        }
+
+        if (this.state.persons.length <= 1) {
+            classes.push('bold')
         }
         return (
 
@@ -146,7 +176,8 @@ class App extends Component {
                         </label>
                         <input type="submit" value="Submit" />
                     </form> */}
-                    <button onClick={this.togglePersonHandler}>Button</button>
+                    <p className={classes.join(' ')}> My Name is Waleed</p>
+                    <button style={style} onClick={this.togglePersonHandler}>Button</button>
                     {persons}
                     {/* <List num={this.state.num}></List> */}
                     {/* {
@@ -162,5 +193,5 @@ class App extends Component {
 
     }
 }
-export default App;
+export default Radium(App);
 
