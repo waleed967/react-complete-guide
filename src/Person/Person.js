@@ -1,19 +1,36 @@
 import React from 'react';
-import Radium from 'radium'
+import styled from 'styled-components';
+// import Radium from 'radium'
+const StyledDiv = styled.div`
 
+
+'@media(min-width: 500px)': {
+
+            width: 450px
+            `;
 const person = (props) => {
+
+    // const style = {
+
+    //     '@media(min-width: 500px)': {
+
+    //         width: '450px'
+    //     }
+    // }
     return (
 
 
-        <div><p onClick={props.click}> My Name Is {props.name} and I am {props.age}
-    year old </p>
+        // <div className="Person">
+        <StyledDiv>
+            <p onClick={props.click}>My Name Is {props.name} and I am {props.age}
+    year old </p >
             <p>{props.children}</p>
             <input type="text" />
-        </div>
+        </StyledDiv>
 
 
 
     )
 
 };
-export default Radium(person);
+export default person;

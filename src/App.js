@@ -5,8 +5,17 @@ import './App.css';
 // import UserInput from './UserInput/UserInput';
 // import UserOutput from './UserOutput/UserOutput'
 import Person from './Person/Person'
-import Radium from 'radium'
+// import Radium, { StyleRoot } from 'radium'
 // import List from './List/List'
+// import styled from 'styled-components';
+// const StyledButton = styled.button`
+// background-color: green,
+// &:hover {
+
+//     background-color: lightgreen;
+//     color: white
+// }
+// `;
 class App extends Component {
     // constructor(props) {
     //     super(props)
@@ -166,7 +175,7 @@ class App extends Component {
             classes.push('bold')
         }
         return (
-
+            // <StyleRoot>
             <div className="App" >
                 <header className="App-header" >
                     {/* <form onSubmit={this.handleSubmit}>
@@ -188,10 +197,11 @@ class App extends Component {
                 </header >
 
             </div >
+            // </StyleRoot >
         );
 
 
     }
 }
-export default Radium(App);
+export default App;
 
