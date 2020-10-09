@@ -4,18 +4,18 @@ import React, { Component } from 'react';
 import './App.css';
 // import UserInput from './UserInput/UserInput';
 // import UserOutput from './UserOutput/UserOutput'
-import Person from './Person/Person'
+import Persons from '../components/Persons/Persons'
 // import Radium, { StyleRoot } from 'radium'
 // import List from './List/List'
-// import styled from 'styled-components';
-// const StyledButton = styled.button`
-// background-color: green,
-// &:hover {
+import styled from 'styled-components';
+const StyledButton = styled.button`
+background-color:  ${props => props.alt ? 'red' : 'green'};
+&:hover {
 
-//     background-color: lightgreen;
-//     color: white
-// }
-// `;
+    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+    color: white
+}
+`;
 class App extends Component {
     // constructor(props) {
     //     super(props)
@@ -97,72 +97,95 @@ class App extends Component {
 
 
     }
-    // nameChangeHandler = (event) => {
-    //     this.setState({
-    //         persons: [
-    //             {
+    nameChangeHandler = (event, id) => {
+        const personIndex = this.state.persons.findIndex(p => {
 
-    //                 name: "Waleed", age: "25"
+            return p.id === id;
 
-    //             },
-    //             {
+        });
 
-    //                 name: "Adeel", age: "26"
+        const person = {
 
-    //             },
-    //             {
+            ...this.state.persons[personIndex]
+        };
 
-    //                 name: event.target.value, age: "27"
-
-    //             }
+        person.name = event.target.value;
+        const persons = [...this.state.persons];
+        persons[personIndex] = person;
+        this.setState({
 
 
-    //         ]
+            persons: persons
+            // persons: [
+            //     {
+
+            //         name: "Waleed", age: "25"
+
+            //     },
+            //     {
+
+            //         name: "Adeel", age: "26"
+
+            //     },
+            //     {
+
+            //         name: event.target.value, age: "27"
+
+            //     }
 
 
-    //     })
+            // ]
+
+
+        })
 
 
 
-    // }
+    }
 
     render() {
-        const style = {
-            backgroundColor: 'white',
-            ':hover': {
+        // const style = {
+        //     backgroundColor: 'white',
+        //     ':hover': {
 
-                backgroundColor: 'lightgreen',
-                color: ' white'
+        //         backgroundColor: 'lightgreen',
+        //         color: ' white'
 
-            }
-
-
+        //     }
 
 
-        };
+
+
+        // };
 
         let persons = null;
         if (this.state.showPersons) {
-            persons = (<div>
-                {this.state.persons.map((person, index) => {
+            persons = (
+                <div>
+                    {/* {this.state.persons.map((person, index) => { */}
 
-                    return <Person
-                        name={person.name}
-                        age={person.age}
-                        click={() => this.deletePersonHandler(index)}
-                        key={person.id} />
-                })}
+                    return <Persons
+                        persons={this.state.persons}
+                        clicked={this.deletePersonHandler}
+                        changed={this.nameChangeHandler} />
+                    {/* name={person.name}
+                      age={person.age}
+                       click={() => this.deletePersonHandler(index)}
+                       key={person.id}
+                     changed={(event) => this.nameChangeHandler(event, person.id)} 
+                 } */}
+                    {/* ) */}
 
 
-            </div>);
+                </div>);
 
-            style.backgroundColor = 'red'
-            style[':hover'] = {
+            // style.backgroundColor = 'red'
+            // style[':hover'] = {
 
-                backgroundColor: 'salmon',
-                color: ' white'
+            //     backgroundColor: 'salmon',
+            //     color: ' white'
 
-            }
+            // }
 
         }
         const classes = [];
@@ -186,7 +209,7 @@ class App extends Component {
                         <input type="submit" value="Submit" />
                     </form> */}
                     <p className={classes.join(' ')}> My Name is Waleed</p>
-                    <button style={style} onClick={this.togglePersonHandler}>Button</button>
+                    <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Button</StyledButton>
                     {persons}
                     {/* <List num={this.state.num}></List> */}
                     {/* {
