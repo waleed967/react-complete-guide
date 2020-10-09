@@ -5,6 +5,7 @@ import './App.css';
 // import UserInput from './UserInput/UserInput';
 // import UserOutput from './UserOutput/UserOutput'
 import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit'
 // import Radium, { StyleRoot } from 'radium'
 // import List from './List/List'
 import styled from 'styled-components';
@@ -201,6 +202,7 @@ class App extends Component {
             // <StyleRoot>
             <div className="App" >
                 <header className="App-header" >
+                    <Cockpit />
                     {/* <form onSubmit={this.handleSubmit}>
                         <label>
                             Values:
@@ -208,7 +210,7 @@ class App extends Component {
                         </label>
                         <input type="submit" value="Submit" />
                     </form> */}
-                    <p className={classes.join(' ')}> My Name is Waleed</p>
+                    {/* <p className={classes.join(' ')}> My Name is Waleed</p> */}
                     <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Button</StyledButton>
                     {persons}
                     {/* <List num={this.state.num}></List> */}
